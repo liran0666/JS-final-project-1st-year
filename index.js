@@ -19,7 +19,14 @@ function addcont() {
     const btn1 = document.createElement('button');
     btn1.textContent = 'info';
     btn1.onclick = () =>
-      showinfo(cont.name, cont.phonenum, cont.age, cont.email, cont.freetext);
+      showinfo(
+        cont.name,
+        cont.phonenum,
+        cont.age,
+        cont.email,
+        cont.freetext,
+        cont.dateadded,
+      );
     const btn2 = document.createElement('button');
     btn2.textContent = 'edit';
     btn2.onclick = () =>
@@ -51,6 +58,7 @@ let contactlist = [
     email: 'ladelshten@gmail.com',
     freetext: 'nothing much to say',
     id: totalpeople++,
+    dateadded: new Date(),
   },
   {
     name: 'bar',
@@ -59,6 +67,7 @@ let contactlist = [
     email: 'barsho@gmail.com',
     freetext: 'hi everyone',
     id: totalpeople++,
+    dateadded: new Date(),
   },
   {
     name: 'ana',
@@ -67,6 +76,7 @@ let contactlist = [
     email: 'anazak@gmail.com',
     freetext: 'אולסטארס וגופיות',
     id: totalpeople++,
+    dateadded: new Date(),
   },
 ];
 
@@ -80,11 +90,12 @@ function adder(event) {
   const email = document.getElementById('emailadd').value.trim();
   const freetext = document.getElementById('freetextadd').value.trim();
   let id = totalpeople++;
+  let dateadded = new Date();
   if (!name || isNaN(age) || !phonenum || age < 1 || age > 200) {
     alert('please enter valid values');
     return;
   }
-  contactlist.push({ name, phonenum, age, email, freetext, id });
+  contactlist.push({ name, phonenum, age, email, freetext, id, dateadded });
   document.querySelector('.addcontactform').reset();
   closeaddcontact();
   contactcards.innerHTML = '';
@@ -92,7 +103,7 @@ function adder(event) {
 }
 
 //info about contact
-function showinfo(name, phonenum, age, email, freetext) {
+function showinfo(name, phonenum, age, email, freetext, dateadded) {
   document.getElementById('contact-info').style.display = 'block';
   let namename = document.getElementById('namename');
   namename.textContent = `Name: ${name}`;
@@ -104,6 +115,8 @@ function showinfo(name, phonenum, age, email, freetext) {
   info3.textContent = `Email: ${email}`;
   let info4 = document.getElementById('contactinfop4');
   info4.textContent = `Free Text: ${freetext}`;
+  let info5 = document.getElementById('contactinfop5');
+  info5.textContent = `Date Added or Edited: ${dateadded} `;
 }
 function closeinfo() {
   document.getElementById('contact-info').style.display = 'none';
@@ -149,6 +162,7 @@ function editor(event) {
       c.phonenum = document.getElementById('numedit').value.trim();
       c.email = document.getElementById('emailedit').value.trim();
       c.freetext = document.getElementById('freetextedit').value.trim();
+      c.dateadded = new Date();
     }
   });
   contactcards.innerHTML = '';
@@ -156,4 +170,16 @@ function editor(event) {
   closeeditcontact();
 }
 
-//favorite
+//Dark mode change
+function darkmode() {
+  if (document.querySelector('body').className == 'lightmode') {
+    document.getElementById('btnimagedark').setAttribute('src', './moon2.png');
+    document.querySelector('body').className = 'darkmode';
+    document.querySelector('header').className = 'darkmode';
+
+  } else{
+    document.getElementById('btnimagedark').setAttribute('src', './moon1.png');
+    document.querySelector('body').className = 'lightmode';
+    document.querySelector('header').className = 'lightmode';
+  }
+}

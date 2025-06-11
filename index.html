@@ -8,9 +8,13 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body class="lightmode">
 
-  <header>
+  <header class="lightmode">
+    <div class="darkmodetoggle">
+      <button id="darkbutton" onclick="darkmode()"><img src="./moon1.png" alt="moon" width="25px"
+          id="btnimagedark"></button>
+    </div>
     <div class="header-title">
       <h1>Phone Book</h1>
       <img src="./phonebooklogo.png" alt="phonebooklogo" width="50px">
@@ -34,6 +38,7 @@
         <p id="contactinfop2"></p>
         <p id="contactinfop3"></p>
         <p id="contactinfop4"></p>
+        <p id="contactinfop5"></p>
         <button onclick="closeinfo()" class="close-btn">&times;</button>
       </div>
     </div>
@@ -58,18 +63,18 @@
     <div class="popup" id="edit-contact">
       <div class="popup-content">
         <h2 class="edith2">Edit Contact</h2>
-        
-          <form class="editcontactform" onsubmit="editor(event)">
-            <input id="nameedit" type="text" placeholder="Name" maxlength="20">
-            <input id="ageedit" type="number" placeholder="Age">
-            <input id="numedit" type="text" placeholder="+972" maxlength="10">
-            <input id="emailedit" type="email" placeholder="Email">
-            <input id="freetextedit" type="text" placeholder="Got Somthing To Say?">
-            <span style="display: none;" id="idofcontact">id</span>
-            <br>
-            <button type="submit" id="editcontactfinalbtn">Edit contact</button>
-          </form>
-      
+
+        <form class="editcontactform" onsubmit="editor(event)">
+          <input id="nameedit" type="text" placeholder="Name" maxlength="20">
+          <input id="ageedit" type="number" placeholder="Age">
+          <input id="numedit" type="text" placeholder="+972" maxlength="10">
+          <input id="emailedit" type="email" placeholder="Email">
+          <input id="freetextedit" type="text" placeholder="Got Somthing To Say?">
+          <span style="display: none;" id="idofcontact">id</span>
+          <br>
+          <button type="submit" id="editcontactfinalbtn">Edit contact</button>
+        </form>
+
         <button onclick="closeeditcontact()" id="closebtnpopup2" class="close-btn">&times;</button>
       </div>
     </div>
