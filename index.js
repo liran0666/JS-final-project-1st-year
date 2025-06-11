@@ -175,11 +175,11 @@ function darkmode() {
   if (document.querySelector('body').className == 'lightmode') {
     document.getElementById('btnimagedark').setAttribute('src', './moon2.png');
     document.querySelector('body').className = 'darkmode';
-    document.querySelector('header').className = 'darkmode';
+    document.querySelector('header').className = 'darkmodeheader';
 
-  } else{
+  } else {
     document.getElementById('btnimagedark').setAttribute('src', './moon1.png');
     document.querySelector('body').className = 'lightmode';
-    document.querySelector('header').className = 'lightmode';
+    document.querySelector('header').className = 'lightmodeheader';
   }
 }

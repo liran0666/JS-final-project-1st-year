@@ -7,19 +7,31 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 .darkmode {
   background-color: black;
   color: black;
 }
+
+.darkmodeheader {
+  background-color: #4d4b4b;
+}
+
+.darkmodeheader h1 {
+  color: rgb(83, 131, 253);
+}
+
 header {
   background-color: rgb(223, 228, 234);
   padding: 20px;
   text-align: center;
 }
+
 .darkmodetoggle {
   position: fixed;
   left: 20;
 }
+
 header h1 {
   color: rgb(74, 111, 165);
   margin: 0;
@@ -36,6 +48,7 @@ header h1 {
   width: 50px;
   height: auto;
 }
+
 main {
   flex: 1;
   display: flex;
@@ -164,6 +177,7 @@ footer {
 #addcontactfinalbtn {
   margin-top: 3%;
 }
+
 #editcontactfinalbtn {
   margin-top: 3%;
   background-color: rgb(74, 111, 165);
